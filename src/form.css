@@ -1,0 +1,192 @@
+/* -------- GLOBAL LAYOUT -------- */
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: #f6f3ef;
+  margin: 0;
+  color: #2c2c2c;
+}
+
+.container {
+  max-width: 720px;
+  margin: auto;
+  padding: 20px;
+}
+
+h2 {
+  color: #b83a2e;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+h3 {
+  color: #1e5f74;
+  font-weight: 600;
+}
+
+h4 {
+  color: #d98e04;
+  margin-bottom: 10px;
+}
+
+/* -------- SECTION CARDS -------- */
+
+section {
+  background: white;
+  padding: 18px;
+  margin-bottom: 22px;
+  border-radius: 10px;
+  border-left: 7px solid #1e5f74;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  overflow: hidden; /* ensures fields stay inside card */
+}
+
+section:nth-child(odd) {
+  border-left-color: #d98e04;
+}
+
+section:nth-child(even) {
+  border-left-color: #1e5f74;
+}
+
+/* -------- FORM FIELDS -------- */
+
+input,
+select,
+textarea {
+  width: 100%;
+  margin: 8px 0 12px 0;
+  padding: 12px;
+  font-size: 1rem;
+  background: #fafafa;
+  border: 1px solid #c9c9c9;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  box-sizing: border-box; /* prevents overflow outside cards */
+}
+
+/* Prevent textarea resizing (your main request) */
+textarea {
+  min-height: 90px;
+  resize: none; /* <<< IMPORTANT */
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #1e5f74;
+  box-shadow: 0 0 0 2px rgba(30, 95, 116, 0.25);
+}
+
+/* Checkbox group layout */
+.checkbox-group label {
+  display: block;
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+/* Note text */
+.note {
+  font-size: 0.9rem;
+  color: #555;
+  background: #fdf2cc;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+/* -------- SUBMIT BUTTON -------- */
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: #b83a2e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.submit-btn:hover {
+  background: #922f26;
+}
+
+.submit-btn:active {
+  background: #7c251f;
+}
+
+/* -------- MOBILE OPTIMIZATION -------- */
+
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 1.45rem;
+  }
+
+  h4 {
+    font-size: 1.15rem;
+  }
+
+  .submit-btn {
+    padding: 14px;
+    font-size: 1.05rem;
+  }
+}
+/* -------- CHECKBOX ALIGNMENT (UPDATED) -------- */
+
+/* Card sections already have padding and borders, so checkboxes will align flush-left */
+section {
+  position: relative;
+}
+
+/* Keep all checkbox rows aligned and evenly spaced */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* Each checkbox + label container */
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.97rem;
+  padding-left: 2px;  /* slight indent for balance */
+}
+
+/* Ensure checkbox stays on the far-left side of the card */
+.checkbox-group input[type="checkbox"] {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: #1e5f74; /* turquoise theme color */
+}
+
+/* Prevent multi-line label text from shifting checkbox alignment */
+.checkbox-group label span,
+.checkbox-group label {
+  line-height: 1.3;
+}
+
+/* Slight emphasis on hover for clarity */
+.checkbox-group label:hover {
+  opacity: 0.85;
+}
